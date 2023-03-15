@@ -122,12 +122,17 @@ public class Book {
 
     public static void countBooksPerAuthor (Book [] books) {
 
-        Map<Person, Long> aantBooks =
-                Arrays.stream(books)
-                        .collect(Collectors.groupingBy(Book::getAuthor, Collectors.counting()));
-        aantBooks.forEach((author, count) -> System.out.println(author.getFirstName() +" "+ author.getLastName() + ": " + count));
-
-        };
+        Stream.of(books)
+                .map(Book::getAuthor)
+                .distinct()
+                .forEach(author -> {
+                    System.out.print(author.getFirstName() + " " + author.getLastName() + ": ");
+                    long count = Stream.of(books)
+                            .filter(book -> book.getAuthor().equals(author))
+                            .count();
+                    System.out.println(count);
+                });
+    }
 
     public static Comparator comparatorByTitle() {
         //Goede manier!!!
