@@ -61,4 +61,14 @@ public class Person extends Book{
     public int hashCode() {
         return Objects.hash(firstName, lastName, dateOfBirth);
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
+    }
 }
+
