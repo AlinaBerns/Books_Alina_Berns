@@ -129,6 +129,13 @@ public class Book {
 
         };
 
+    public static Comparator comparatorByTitle() {
+        //Goede manier!!!
+
+        return Comparator.comparing(Book::getTitle);
+
+    }
+
 
 
     @Override
