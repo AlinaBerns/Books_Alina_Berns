@@ -91,6 +91,10 @@ public class Book {
 
         System.out.println(books[books.length - 1]);
 
+        // OF System.out.println(Stream.of(books).max(Comparator.comparing(book -> book.getAuthor().getDateOfBirth())).get().getAuthor());
+       // OF System.out.println(Stream.of(books)
+            //    .map(Book::getAuthor)
+             //   .max(Comparator.comparing(Person::getDateOfBirth)).get());
     }
 
     public static void printSortedByTitle (Book [] books){
