@@ -51,7 +51,7 @@ public class BookApp {
         //deze methode print het aantal boeken af per auteur.
         System.out.println("***Deze methode print het aantal boeken af per auteur.***\n");
 
-        Book.printSortedByTitle(books);
+        Book.countBooksPerAuthor(books);
         System.out.println("\n\n");
 
         //De boeken af die gereleaset zijn in 2016.
@@ -60,10 +60,11 @@ public class BookApp {
         Book.printBooks2016(books);
         System.out.println("\n\n");
 
-        //Deze methode print het aantal boeken af per auteur.
-        System.out.println("***Deze methode print het aantal boeken af per auteur.***\n");
+        //Sorted By Title
+        System.out.println("***Sorted By Title***\n");
 
-        Book.countBooksPerAuthor(books);
+        Book.printSortedByTitle(books);
+        System.out.println("\n\n");
 
 
 

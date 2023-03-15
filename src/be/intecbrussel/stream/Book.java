@@ -65,9 +65,18 @@ public class Book {
     public static Book getNewestBook(Book [] books) {
 
         books = Stream.of(books)
-                .sorted(Comparator.<Book, LocalDate>comparing(Book::getReleaseDate)).toArray(Book[]::new);
+                .sorted(Comparator.comparing(Book::getReleaseDate)).toArray(Book[]::new);
 
         System.out.println(books[books.length - 1]);
+
+        //OF Book recBook = Stream.of(books)
+                //.max(Comparator.comparing(book -> book.getReleaseDate())).get();
+        //return recBook;
+
+        //OF Book [] sortedBooks = Stream.of (books)
+        // .sorted(Comparator.comparing(Book::getReleaseDate).reversed ())
+        //  .toArray(Book [] :: new);
+        // return sortedBooks [0];
 
 
         return null;
@@ -77,6 +86,7 @@ public class Book {
 
         books = Stream.of(books)
                 .sorted(Comparator.comparing(x -> x.getAuthor().getDateOfBirth()))
+                .map(Book::getAuthor)
                 .toArray(Book[]::new);
 
         System.out.println(books[books.length - 1]);
@@ -91,10 +101,19 @@ public class Book {
     }
 
     public static void printBooks2016 (Book [] books) {
-        Stream.of(books)
-                .filter(book ->book.getReleaseDate().getYear() == 2016)
-                .forEach(System.out::println);
-                //OF .forEach(x -> System.out.print(x.getReleaseDate().getYear() == 2016 ? x + "\n" : ""));
+        //Stream.of(books)
+               // .filter(book -> book.getReleaseDate().getYear() == 2016)
+               // .forEach(System.out::println);
+        //OF .forEach(x -> System.out.print(x.getReleaseDate().getYear() == 2016 ? x + "\n" : ""));
+
+        if (Stream.of(books)
+                .filter(book -> book.getReleaseDate().getYear() == 2016)
+                .peek(System.out::println)
+                .count() == 0
+        ) {
+            System.out.println("No book released");
+        }
+
     }
 
     public static void countBooksPerAuthor (Book [] books) {
