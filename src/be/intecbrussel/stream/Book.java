@@ -92,7 +92,9 @@ public class Book {
 
     public static void printBooks2016 (Book [] books) {
         Stream.of(books)
-                .forEach(x -> System.out.print(x.getReleaseDate().getYear() == 2016 ? x + "\n" : ""));
+                .filter(book ->book.getReleaseDate().getYear() == 2016)
+                .forEach(System.out::println);
+                //OF .forEach(x -> System.out.print(x.getReleaseDate().getYear() == 2016 ? x + "\n" : ""));
     }
 
     public static void countBooksPerAuthor (Book [] books) {
